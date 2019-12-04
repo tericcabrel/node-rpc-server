@@ -12,7 +12,6 @@ let serviceName: string = '';
 if (process.argv.length >= 3) {
 	serviceName = process.argv[2];
 }
-console.log(serviceName);
 
 // Create a client object with options
 const client: any = new rpc.Client(options);
