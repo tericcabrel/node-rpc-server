@@ -1,10 +1,26 @@
-const addition = (a: number, b: number): number => {
-  return a + b;
-};
+import { Service } from './service';
+import * as path from 'path';
+import * as fs from 'fs';
 
-const number1: number = 5;
-const number2: number = 7;
+const rpc = require('@hamjs/rpc-server');
 
-const result: number = addition(number1, number2);
+rpc.listen(7016, () => {
+  console.log('RPC server is running...');
+});
 
-console.log('The result is %d', result);
+rpc.def('domain_name', (serviceName: string) => {
+  const servicePath: string = path.join(`${__dirname}`, '../public/service.json');
+
+  console.log('service => ', servicePath);
+  const content: string = fs.readFileSync(servicePath, { encoding: 'utf8' });
+
+  try {
+    const services: { [key: string]: string } = JSON.parse(content);
+
+    return services[serviceName] ? services[serviceName] : null;
+  } catch (e) {
+    console.error('JSON Parse error: ', e);
+  }
+
+  return null;
+});
