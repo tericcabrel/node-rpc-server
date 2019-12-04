@@ -11,6 +11,7 @@
   "private": false,
   "scripts": {
     "start": "nodemon --watch '*.ts' --exec 'ts-node' ./app/index.ts",
+    "client": "ts-node app/client.ts",
     "lint": "tslint --project tsconfig.json",
     "prod": "tsc && node ./build/index.js"
   },
