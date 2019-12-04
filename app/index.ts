@@ -1,14 +1,24 @@
-import { Service } from './service';
 import * as path from 'path';
 import * as fs from 'fs';
 
-const rpc = require('@hamjs/rpc-server');
+const rpc = require('node-json-rpc');
 
-rpc.listen(7016, () => {
-  console.log('RPC server is running...');
-});
+const options = {
+  // int port of rpc server, default 5080 for http or 5433 for https
+  port: 7016,
+  // string domain name or ip of rpc server, default '127.0.0.1'
+  host: '127.0.0.1',
+  // string with default path, default '/'
+  path: '/',
+  // boolean false to turn rpc checks off, default true
+  strict: true,
+};
 
-rpc.def('domain_name', (serviceName: string) => {
+// Create a server object with options
+const server = new rpc.Server(options);
+
+// Add your methods
+server.addMethod('domain_name', (params: any[], callback: Function) => {
   const servicePath: string = path.join(`${__dirname}`, '../public/service.json');
 
   console.log('service => ', servicePath);
@@ -17,10 +27,17 @@ rpc.def('domain_name', (serviceName: string) => {
   try {
     const services: { [key: string]: string } = JSON.parse(content);
 
-    return services[serviceName] ? services[serviceName] : null;
+    callback(null, services[params[0]] ? services[params[0]] : null);
   } catch (e) {
     console.error('JSON Parse error: ', e);
-  }
 
-  return null;
+    callback('Unexpected error!', null);
+  }
+});
+
+// Start the server
+server.start((error: any) => {
+  if (error) throw error;
+
+  console.log('RPC Server is running...');
 });

@@ -37,11 +37,6 @@
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
 
-"@hamjs/rpc-server@^0.0.31":
-  version "0.0.31"
-  resolved "https://registry.yarnpkg.com/@hamjs/rpc-server/-/rpc-server-0.0.31.tgz#93378ff120e02894fae79430b6b97a4d91d9620d"
-  integrity sha512-aFLceRu9eEVXEFqPx5ISyK0VmifXT9OV9BSy16iSBy8wweUuuFyt5DucRxIpwxGLVf/eH66DWWAlMP8f+09DgA==
-
 "@types/node@^12.12.14":
   version "12.12.14"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.14.tgz#1c1d6e3c75dba466e0326948d56e8bd72a1903d2"
@@ -1326,6 +1321,11 @@ needle@^2.2.1:
     debug "^3.2.6"
     iconv-lite "^0.4.4"
     sax "^1.2.4"
+
+node-json-rpc@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/node-json-rpc/-/node-json-rpc-0.0.1.tgz#8e69f87708265e84226e25ee088468253f2d491a"
+  integrity sha1-jmn4dwgmXoQibiXuCIRoJT8tSRo=
 
 node-notifier@^5.4.0:
   version "5.4.3"

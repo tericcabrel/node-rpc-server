@@ -15,9 +15,9 @@
     "prod": "tsc && node ./build/index.js"
   },
   "dependencies": {
-    "@hamjs/rpc-server": "^0.0.31",
     "@types/node": "^12.12.14",
     "global": "^4.4.0",
+    "node-json-rpc": "^0.0.1",
     "tslint": "^5.19.0",
     "typescript": "^3.6.2"
   },
