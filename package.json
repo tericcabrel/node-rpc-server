@@ -27,6 +27,6 @@
     "nodemon": "^1.19.1",
     "ts-node-dev": "^1.0.0-pre.42",
     "tslint-config-airbnb": "^5.11.1",
-    "yarn": "^1.17.3"
+    "yarn": "^1.22.0"
   }
 }
